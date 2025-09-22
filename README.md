@@ -1,4 +1,4 @@
-# New Game
+# Buggy Run
 
 ## Licenses
 
