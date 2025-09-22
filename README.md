@@ -26,8 +26,7 @@ VGS-Xで凸凹な地面を接地しながら走る車のデモプログラムで
           ry = i; // 右車輪の接地検出
       }
   }
-  int32_t degree = vgs_degree(x + 8, ly, x + 23, ry);
-  vgs_oam(0)->rotate = degree;
+  vgs_oam(0)->rotate = vgs_degree(x + 8, ly, x + 23, ry);
   vgs_oam(0)->y = ly < ry ? ly - 32 : ry - 32;
 ```
 
