@@ -12,6 +12,7 @@ M68KCC += -T${VGSX_ROOT}/lib/linker.ld
 OBJ_FILES = ./src/main.o
 # OBJ_FILES += ./src/sub.o
 CHR_FILES = ./bmp/font.chr
+CHR_FILES += ./bmp/car.chr
 BGM_FILES = ./vgm/sample.vgm
 WAV_FILES = ./wav/sample.wav
 
@@ -28,7 +29,7 @@ game.rom: program.elf palette.bin ${CHR_FILES} ${BGM_FILES} ${WAV_FILES}
 	${MAKEROM} -o $@ -e program.elf -c palette.bin -g ${CHR_FILES} -b ${BGM_FILES} -s ${WAV_FILES}
 
 program.elf: ${OBJ_FILES}
-	${M68KCC} -o $@ ${OBJ_FILES} -L${VGSX_ROOT}/lib -Wl,-ecrt0
+	${M68KCC} -o $@ ${OBJ_FILES} -L${VGSX_ROOT}/lib -Wl,-ecrt0 -llog
 
 palette.bin: ./bmp/font.bmp
 	${BMP2PAL} $< $@
